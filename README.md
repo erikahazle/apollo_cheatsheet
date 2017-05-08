@@ -1,4 +1,4 @@
-# Lightful cheatsheet for using Apollo client with our React application
+# Cheatsheet for using Apollo client with a React application
 
 
 Currently, we are keeping all query and mutation templates in `app/graphql` directory.
