@@ -10,10 +10,38 @@ The use of fragments is encouraged to limit boilerplate for queries and mutation
 
 ## Making queries
 
+Eg:
+
+
+```
+const UserDetails = gql`
+  fragment UserDetails on User {
+    id
+    name
+  }
+`
+
+export const getUsers = gql`
+  query getUsers {
+    allUsers(condition: {userState: ACTIVE}) {
+      nodes {
+        ...UserDetails
+      }
+    }
+  }
+  ${UserDetails}
+`
+```
+
+Passing in condition object will allow you to filter data that comes from the API.
+
+Name your queries to call them in update queries for updating lists.
 
 
 ## Making mutations
 
 
 
-## Keeping UI updated (removing and adding to lists)
+## Keeping UI updated (removing and adding from/to lists)
+
+
