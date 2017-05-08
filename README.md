@@ -115,7 +115,8 @@ Apollo updates lists within its store based on `id` (and `_id`), which means tha
 
 `updateQueries` are prefererable as they do not trigger extra calls to the API:
 
-`graphql(updateUserById, {
+```
+graphql(updateUserById, {
     props({ ownProps, mutate }) {
       return {
         updateUser({variables}) {
@@ -143,7 +144,8 @@ Apollo updates lists within its store based on `id` (and `_id`), which means tha
         }
       }
     }
-  })`
+  })
+```
 
 `updateUser`, in this case, is the name of the prop that will be passed down to the component that is wrapped in `graphql`.
 
