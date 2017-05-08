@@ -3,7 +3,7 @@
 
 Currently, we are keeping all query and mutation templates in `app/graphql` directory.
 
-Each resource has an individual file (eg. `campaigns.js`) with all fragments, queries and mutations being stored together.
+Each resource has an individual file (eg. `users.js`) with all fragments, queries and mutations being stored together.
 
 The use of fragments is encouraged to limit boilerplate for queries and mutations.
 
@@ -37,6 +37,21 @@ Passing in condition object will allow you to filter data that comes from the AP
 
 Name your queries to call them in update queries for updating lists.
 
+
+Some queries will require you to specify a variables as in:
+
+
+```
+export const getUserById = gql`
+  query ($id: Uuid!) {
+    userById(id: $id) {
+      ...UserDetails
+    }
+  }
+  ${UserDetails}
+`
+
+```
 
 ## Making mutations
 
